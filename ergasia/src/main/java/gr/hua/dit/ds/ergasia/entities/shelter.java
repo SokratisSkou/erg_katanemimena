@@ -1,57 +1,41 @@
 package gr.hua.dit.ds.ergasia.entities;
 
-public class shelter {
+public class shelter extends user {
     private String location;
-    private int id;
-    private String email;
-    private String name;
+
+
+
 
     public String getLocation() {
         return location;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public String getName() {
-        return name;
-    }
+
+
+
 
     public void setLocation(String location) {
         this.location = location;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public shelter(String location, int id, String email, String name) {
+
+
+
+    public shelter(long id, String UserName, String name, String password, int age,String location) {
+        super(id,UserName,name,password,age);
         this.location = location;
-        this.id = id;
-        this.email = email;
-        this.name = name;
+
     }
 
     @Override
     public String toString() {
-        return "selter{" +
+        return "shelter{" +
                 "location='" + location + '\'' +
-                ", id=" + id +
-                ", email='" + email + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+                "} " + super.toString();
     }
 }

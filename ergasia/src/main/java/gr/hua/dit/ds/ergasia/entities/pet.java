@@ -1,15 +1,26 @@
 package gr.hua.dit.ds.ergasia.entities;
 
 public class pet {
-    private int id;
+    private Long id;
     private String name;
+    private String type;
     private int age;
+    public String getType() {
+        return type;
+    }
 
-    public int getId() {
+    public void setType(String type) {
+        this.type = type;
+    }
+
+
+
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -29,9 +40,10 @@ public class pet {
         this.age = age;
     }
 
-    public pet(int id, String name, int age) {
+    public pet(Long id, String name, String type,int age) {
         this.id = id;
         this.name = name;
+        this.type = type;
         this.age = age;
     }
 
@@ -40,6 +52,7 @@ public class pet {
         return "pet{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
                 ", age=" + age +
                 '}';
     }

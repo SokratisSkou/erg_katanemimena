@@ -9,20 +9,20 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 import java.util.HashSet;
 import java.util.Set;
+@Data
+@NoArgsConstructor
 @Entity
-@Table(	name = "users",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = "username"),
-                @UniqueConstraint(columnNames = "name")
-        })
+@Inheritance(strategy = InheritanceType.JOINED)
 public class user {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Integer Id;
 
     @NotBlank
     @Size(max = 20)
@@ -45,10 +45,8 @@ public class user {
 
 
 
-    public user() {
-    }
 
-    public user(long Id,String username, String name, String password, int age) {
+    public user(int Id,String username, String name, String password, int age) {
         this.Id =Id;
         this.username = username;
         this.name = name;
@@ -56,11 +54,11 @@ public class user {
         this.Age = age;
     }
 
-    public Long getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(Long id) {this.Id = id;}
+    public void setId(int id) {this.Id = id;}
 
     public String getUsername() {
         return username;

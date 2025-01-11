@@ -9,11 +9,28 @@ import java.util.List;
 
 @Service
 public class petService {
-    private petRepository petRepository;
-    public petService(petRepository petRepository) {this.petRepository = petRepository;}
+    private final petRepository petRepository;
 
-    @Transactional
-    public List<pet> getPets() {return petRepository.findAll();}
+    public petService(petRepository petRepository) {
+        this.petRepository = petRepository;
+    }
 
+    public List<pet> getAllPets() {
+        return petRepository.findAll();
+    }
 
+    public pet addPet(pet pet) {
+        return petRepository.save(pet);
+    }
+    public List<pet> getPetsByApprovalStatus(String status) {
+        return petRepository.findByApprovalStatus(status);
+    }
+    public void deletePet(Integer petId) {
+        petRepository.deleteById(petId);
+    }
+    public void updatePetApprovalStatus(Integer petId, String status) {
+        pet pet = petRepository.findById(petId).orElseThrow(() -> new RuntimeException("Pet not found"));
+        pet.setApprovalStatus(status);
+        petRepository.save(pet);
+    }
 }

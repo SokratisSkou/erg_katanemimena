@@ -9,7 +9,7 @@ public class Admin extends user {
     public Admin() {}
 
 
-    public Admin(long id, String UserName, String name, String password, int age) {
+    public Admin(int id, String UserName, String name, String password, int age) {
         super(id,UserName,name,password,age);
     }
 

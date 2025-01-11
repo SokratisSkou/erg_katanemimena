@@ -11,7 +11,6 @@ import java.util.List;
 public class CitizenService {
     private CitizenRepository citizenRepository;
     public CitizenService(CitizenRepository citizenRepository) {this.citizenRepository = citizenRepository;}
-    @Transactional
-    public
+
 
 }

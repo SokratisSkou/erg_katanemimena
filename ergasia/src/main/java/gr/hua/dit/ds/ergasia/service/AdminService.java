@@ -20,6 +20,5 @@ public class AdminService {
         adminRepository.save(admin);
     }
 
-    @Transactional
-    public void aprovePet(List <pet>)
+
 }

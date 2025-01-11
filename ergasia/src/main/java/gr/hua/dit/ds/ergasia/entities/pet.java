@@ -1,10 +1,30 @@
 package gr.hua.dit.ds.ergasia.entities;
 
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@Entity
 public class pet {
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer petId;
     private String name;
     private String type;
     private int age;
+    private String healthStatus;
+    private String approvalStatus;
+
+    public String getApprovalStatus() {
+        return approvalStatus;
+    }
+
+    public void setApprovalStatus(String approvalStatus) {
+        this.approvalStatus = approvalStatus;
+    }
+
     public String getType() {
         return type;
     }
@@ -14,14 +34,20 @@ public class pet {
     }
 
 
-
-
-    public Long getId() {
-        return id;
+    public String getHealthStatus() {
+        return healthStatus;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setHealthStatus(String healthStatus) {
+        this.healthStatus = healthStatus;
+    }
+
+    public int getId() {
+        return petId;
+    }
+
+    public void setId(int id) {
+        this.petId = id;
     }
 
     public String getName() {
@@ -40,17 +66,24 @@ public class pet {
         this.age = age;
     }
 
-    public pet(Long id, String name, String type,int age) {
-        this.id = id;
+    public pet(int id, String name, String type,int age,String healthStatus,String approvalStatus) {
+        this.petId = id;
         this.name = name;
         this.type = type;
         this.age = age;
+        this.healthStatus = healthStatus;
+        this.approvalStatus = approvalStatus;
     }
+    @ManyToOne
+    private shelter shelter;
+
+    @ManyToOne
+    private vet vet;
 
     @Override
     public String toString() {
         return "pet{" +
-                "id=" + id +
+                "id=" + petId +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", age=" + age +

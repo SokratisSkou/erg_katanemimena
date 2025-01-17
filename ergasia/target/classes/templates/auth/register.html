@@ -1,0 +1,17 @@
+<h1>Register</h1>
+<form action="/saveUser" method="post">
+    <label for="email">Email:</label>
+    <input type="email"id="email" name="email" required>
+    <label for="password">Password:</label>
+    <input type="password"id="password" name="password" required>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="role">Role:</label>
+    <select id="role" name="role">
+        <option value="ROLE_ADMIN">Admin</option>
+        <option value="ROLE_VET">Vet</option>
+        <option value="ROLE_SHELTER">Shelter</option>
+        <option value="ROLE_CITIZEN">Citizen</option>
+    </select>
+    <button type="submit">Register</button>
+</form>

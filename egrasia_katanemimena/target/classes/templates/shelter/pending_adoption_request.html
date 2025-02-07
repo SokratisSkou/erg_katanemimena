@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{page_layout/layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Pending Adoption Requests</title>
+
+</head>
+<body>
+<section layout:fragment="main-content">
+<h2>Pending Adoption Requests</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Request ID</th>
+    <th>Citizen Name</th>
+    <th>Pet ID</th>
+    <th>Pet Name</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="request : ${pendingRequests}">
+    <td th:text="${request.id}"></td>
+    <td th:text="${request.citizenname}"></td> <!-- Assuming you have a citizenName field -->
+    <td th:text="${request.petid}"></td>
+    <td th:text="${request.petname}"></td> <!-- Assuming you have a petName field -->
+
+    <td>
+      <form th:action="@{/shelter/accept_request}" method="post" style="display:inline;">
+        <input type="hidden" name="requestId" th:value="${request.id}"/>
+        <button type="submit">Accept</button>
+      </form>
+      <form th:action="@{/shelter/decline_request}" method="post" style="display:inline;">
+        <input type="hidden" name="requestId" th:value="${request.id}"/>
+        <button type="submit">Decline</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</section>
+</body>
+</html>

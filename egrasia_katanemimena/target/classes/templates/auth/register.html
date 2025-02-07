@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{page_layout/layout}">
+<head>
+    <title>Register</title>
+</head>
+<body>
+<section layout:fragment="main-content">
+    <h1>Register</h1>
+    <form th:action="@{/saveUser}" method="post" th:object="${user}">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" th:field="*{username}" required>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" th:field="*{email}" required>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" th:field="*{password}" required>
+        </div>
+
+        <div>
+            <label for="role">Role</label>
+            <select id="role" name="role" th:field="*{role}">
+                <option th:each="role : ${roles}" th:if="${role.name != 'ADMIN'}"  th:value="${role.id}" th:text="${role.name}" ></option>
+            </select>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+</section>
+</body>
+</html>

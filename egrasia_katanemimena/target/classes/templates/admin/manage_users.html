@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{page_layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Users</title>
+
+</head>
+<body>
+<section layout:fragment="main-content">
+<h2>Manage Users</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.role.name}"></td> <!-- Assuming role is an object with a name property -->
+        <td>
+            <a th:href="@{/admin/edit_user(id=${user.id})}">Edit</a>
+            <form th:action="@{/admin/delete_user(id=${user.id})}" method="post" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/admin/add_user">Add New User</a> <!-- Link to add a new user -->
+</section>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{page_layout/layout}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Adoption System</title>
+</head>
+<body>
+
+<section layout:fragment="main-content">
+  <div class="container">
+    <h1>Welcome to the Pet Adoption System</h1>
+    <nav>
+      <ul class="nav justify-content-center">
+        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+        <li class="nav-item"><a class="nav-link btn btn-primary" href="/register">Register</a></li>
+      </ul>
+    </nav>
+
+    <section class="about mt-4">
+      <h2>About Us</h2>
+      <p>We connect shelters with loving individuals looking to adopt, ensuring every pet finds a forever home.</p>
+    </section>
+
+    <section class="how-it-works mt-4">
+      <h2>How It Works</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <h3>1. Shelters Register</h3>
+          <p>Shelters sign up and list pets for adoption.</p>
+        </div>
+        <div class="col-md-4">
+          <h3>2. Vet Verification</h3>
+          <p>Veterinarians check and approve pets' health status.</p>
+        </div>
+        <div class="col-md-4">
+          <h3>3. Adoption Requests</h3>
+          <p>Adopters browse pets and submit adoption applications.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="get-started mt-4">
+      <h2>Get Started</h2>
+      <p>Whether you're a shelter, vet, or adopter, sign up now and start your journey with us!</p>
+      <a href="/register" class="btn btn-success">Register Now</a>
+    </section>
+  </div>
+</section>
+
+</body>
+</html>

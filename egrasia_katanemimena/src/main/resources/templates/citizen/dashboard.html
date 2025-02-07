@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{page_layout/layout}">
+<head>
+    <title>Citizen Dashboard</title>
+</head>
+<body>
+<section layout:fragment="main-content">
+<h1>Welcome, Citizen</h1>
+<ul>
+    <li><a th:href="@{/citizen/view_pets}">View Available Pets</a></li>
+    <li><a th:href="@{/citizen/request_appointment}">Request Appointment</a></li>
+    <li><a th:href="@{/citizen/details}">details</a></li>
+    <li>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Log Out</button>
+        </form>
+    </li>
+</ul>
+</section>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{page_layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Pending Pets for Approval</title>
+</head>
+<body>
+<section layout:fragment="main-content">
+<h2>Pending Pets for Approval</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Pet ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Age</th>
+        <th>Health Status</th>
+        <th>Approval Status</th>
+
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pet : ${pets}">
+        <td th:text="${pet.petId}"></td>
+        <td th:text="${pet.name}"></td>
+        <td th:text="${pet.type}"></td>
+        <td th:text="${pet.age}"></td>
+        <td th:text="${pet.healthStatus}"></td>
+        <td th:text="${pet.approvalStatus}"></td>
+
+        <td>
+            <form th:action="@{/admin/approve_pet}" method="post" style="display:inline;">
+                <input type="hidden" name="petId" th:value="${pet.petId}"/>
+                <button type="submit">Approve</button>
+            </form>
+            <form th:action="@{/admin/decline_pet}" method="post" style="display:inline;">
+                <input type="hidden" name="petId" th:value="${pet.petId}"/>
+                <button type="submit">Decline</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</section>
+</body>
+</html>

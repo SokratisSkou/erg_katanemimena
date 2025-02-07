@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{page_layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Pending Shelters for Approval</title>
+</head>
+<body>
+<section layout:fragment="main-content">
+<h2>Pending Shelters for Approval</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Shelter ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>ContactInfo</th>
+        <th>Status</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="shelter : ${shelters}">
+        <td th:text="${shelter.id}"></td>
+        <td th:text="${shelter.name}"></td>
+        <td th:text="${shelter.location}"></td>
+        <td th:text="${shelter.contactInfo}"></td>
+        <td th:text="${shelter.approvalStatus}"></td>
+        <td>
+            <form th:action="@{/admin/approve_shelter}" method="post" style="display:inline;">
+                <input type="hidden" name="shelterId" th:value="${shelter.id}"/>
+                <button type="submit">Approve</button>
+            </form>
+            <form th:action="@{/admin/delete_shelter}" method="post" style="display:inline;">
+                <input type="hidden" name="shelterId" th:value="${shelter.id}"/>
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</section>
+</body>
+</html>

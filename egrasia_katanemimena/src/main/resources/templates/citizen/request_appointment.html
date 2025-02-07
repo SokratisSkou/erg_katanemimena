@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{page_layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Request Appointment</title>
+</head>
+<body>
+<section layout:fragment="main-content">
+    <h2>ADD APPOINTMENT</h2>
+
+    <form th:action="@{/citizen/visit_schedule}" method="post"  th:object="${appointment}">
+        <div>
+            <label for="visitDate">visitDate:</label>
+            <input type="date" id="visitDate" name="visitDate" th:field="*{visitDate}" required>
+        </div>
+        <div>
+            <label for="visitTime">visitTime:</label>
+            <input type="time" id="visitTime" name="visitTime" th:field="*{visitTime}" required>
+        </div>
+        <div>
+            <label for="citizen_id">citizen_id:</label>
+            <input type="number" id="citizen_id" name="citizenId" required>
+        </div>
+
+        <button type="submit">Schedule Visit</button>
+    </form>
+
+</section>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{page_layout/layout}">
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<section layout:fragment="main-content">
+    <h1>Welcome, Admin</h1>
+    <ul>
+        <li><a th:href="@{/admin/pending_shelters}">Approve Shelters</a></li>
+        <li><a th:href="@{/admin/pending_pets}">Manage Pets</a></li>
+        <li><a th:href="@{/admin/manage_users}">Manage Users</a></li>
+        <li><a th:href="@{/admin/details}">Details</a></li>
+        <li><a th:href="@{/admin/pending_adoption_request}">Manage Pending Adoptions</a></li>
+        <li>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit">Log Out</button>
+            </form>
+        </li>
+    </ul>
+</section>
+</body>
+</html>

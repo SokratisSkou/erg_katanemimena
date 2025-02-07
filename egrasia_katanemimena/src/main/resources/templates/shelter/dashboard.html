@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{page_layout/layout}">
+<head>
+  <title>Shelter Dashboard</title>
+</head>
+<body>
+
+<section layout:fragment="main-content">
+<h1>Welcome, Shelter</h1>
+<ul>
+  <li><a th:href="@{/shelter/add_pet}">Add New Pet</a></li>
+  <li><a th:href="@{/shelter/manage_adoptions}">Manage Adoption Requests</a></li>
+  <li><a th:href="@{/shelter/details}">Details</a></li>
+  <li><a th:href="@{/shelter/pending_adoption_request}">Pending Adoption Request</a></li>
+  <li>
+    <form th:action="@{/logout}" method="post">
+      <button type="submit">Log Out</button>
+    </form>
+  </li>
+</ul>
+</section>
+</body>
+</html>

@@ -6,3 +6,4 @@
 Στην συνεχεια πηγαίνετε στον Browser τον οποιο χρησιμοποιητε και πληκτρολλογίστε localhost:8080
 Συνδεθηκατε με επιτυχια στην εφαρμογη!
 Το USERNAME PASSWORD του ADMIN ειναι USERNAME:Socrates2 PASSWORD:1234
+ΠΡΟΣΟΧΗ!!!! Για να συνδεθητε στην καινουργια βαση δεδομενων, επειδη η προηγουμενη μας ελειξε, τα στοιχεια μας εχουν ως εξης: HOST:dpg-cuph7ii3esus738e4fv0-a.oregon-postgres.render.com   USER:dsuser PASSWORD:DI6XiND1jsbOtZdZm3nRWd1qs7cUQ3bQ
